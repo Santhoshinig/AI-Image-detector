@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pip install -r backend/requirements.txt",
+  "startCommand": "cd backend && gunicorn -w 4 -b 0.0.0.0:8000 app:app",
+  "environmentVariables": {
+    "PYTHON_VERSION": "3.11",
+    "FLASK_ENV": "production"
+  }
+}
