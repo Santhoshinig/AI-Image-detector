@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Image Detector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Starter Project</p>
+        <h1>AI Image Detector</h1>
+        <p class="subtitle">
+          Upload an image and get a starter analysis result. This version is made with HTML, CSS, JavaScript, and Flask.
+        </p>
+      </div>
+      <div class="hero-badge">Demo Build</div>
+    </header>
+
+    <main class="grid">
+      <section class="card upload-card">
+        <h2>Upload image</h2>
+        <p class="muted">Supported: JPG, JPEG, PNG, WEBP</p>
+
+        <label for="imageInput" class="dropzone" id="dropzone">
+          <input type="file" id="imageInput" accept="image/png,image/jpeg,image/jpg,image/webp" hidden />
+          <div class="dropzone-content">
+            <div class="upload-icon">⬆</div>
+            <p><strong>Click to choose</strong> or drag & drop here</p>
+            <span>Max recommended size: 10 MB</span>
+          </div>
+        </label>
+
+        <div class="button-row">
+          <button id="analyzeBtn" class="primary-btn" disabled>Analyze Image</button>
+          <button id="resetBtn" class="secondary-btn">Reset</button>
+        </div>
+
+        <p id="statusText" class="status-text">No image selected.</p>
+      </section>
+
+      <section class="card preview-card">
+        <h2>Preview</h2>
+        <div class="preview-box" id="previewBox">
+          <p class="empty-preview">Your selected image will appear here.</p>
+        </div>
+      </section>
+
+      <section class="card result-card full-width">
+        <div class="result-header">
+          <div>
+            <h2>Analysis Result</h2>
+            <p class="muted">The output below comes from the backend detector endpoint.</p>
+          </div>
+          <div id="loader" class="loader hidden"></div>
+        </div>
+
+        <div id="resultEmpty" class="result-empty">
+          <p>No result yet. Upload an image and click <strong>Analyze Image</strong>.</p>
+        </div>
+
+        <div id="resultContent" class="hidden">
+          <div class="pill-row">
+            <span class="pill" id="labelPill">-</span>
+            <span class="pill secondary" id="confidencePill">Confidence: -</span>
+            <span class="pill secondary" id="aiProbPill">AI Probability: -</span>
+          </div>
+
+          <div class="note-box" id="noteBox"></div>
+
+          <div class="result-grid">
+            <div class="mini-card">
+              <span>Width</span>
+              <strong id="widthValue">-</strong>
+            </div>
+            <div class="mini-card">
+              <span>Height</span>
+              <strong id="heightValue">-</strong>
+            </div>
+            <div class="mini-card">
+              <span>Megapixels</span>
+              <strong id="megaValue">-</strong>
+            </div>
+            <div class="mini-card">
+              <span>Texture STD</span>
+              <strong id="textureValue">-</strong>
+            </div>
+            <div class="mini-card">
+              <span>Edge Density</span>
+              <strong id="edgeValue">-</strong>
+            </div>
+          </div>
+
+          <div class="reasons-block">
+            <h3>Reasons</h3>
+            <ul id="reasonsList"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
