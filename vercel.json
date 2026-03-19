@@ -1,0 +1,14 @@
+{
+  "buildCommand": "echo 'Frontend only - backend deployed separately'",
+  "outputDirectory": "frontend",
+  "framework": "static",
+  "env": {
+    "VITE_API_URL": "@api_url"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -8,6 +8,11 @@ const loader = document.getElementById('loader');
 const resultEmpty = document.getElementById('resultEmpty');
 const resultContent = document.getElementById('resultContent');
 
+// API Configuration
+// For local development: 'http://localhost:5000'
+// For production: Update this to your deployed backend URL (e.g., 'https://your-railway-app.railway.app')
+const API_URL = 'http://localhost:5000'; // Change this for production!
+
 let selectedFile = null;
 
 function setPreview(file) {
@@ -75,7 +80,7 @@ analyzeBtn.addEventListener('click', async () => {
   formData.append('image', selectedFile);
 
   try {
-    const response = await fetch('/predict', {
+    const response = await fetch(`${API_URL}/predict`, {
       method: 'POST',
       body: formData,
     });
