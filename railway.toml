@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pip install -r requirements.txt"
+
+[deploy]
+startCommand = "gunicorn -w 4 -b 0.0.0.0:8000 app:app"
+restartPolicyMaxRetries = 5
+
+[env]
+FLASK_ENV = "production"
+PYTHONUNBUFFERED = "1"
+PORT = "8000"
